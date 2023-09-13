@@ -9,7 +9,7 @@ from models.person import db, Person
 
 app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/prod.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////var/www/data/prod.db'
 app.register_blueprint(app_views)
 db.init_app(app)
 
