@@ -16,7 +16,7 @@ class Person(db.Model):
     name: Mapped[str] = mapped_column(String, unique=True, nullable=False)
 
     @staticmethod
-    def validate_id(person_id: int) -> bool:
+    def validate_id(pid: int) -> bool:
         """ Verify Person ID is a valid integer
         Args:
             person_id (int): Person instance auto-generated database ID
@@ -24,9 +24,13 @@ class Person(db.Model):
             True (bool): person_id is a valid, positive integer
             False (bool): person_id is not a valid, non-negative integer
         """
-        if person_id and person_id > 0 and isinstance(person_id, int):
-            return True
-        return False
+        try:
+            pid = int(pid)
+            if pid > 0 and isinstance(pid, int):
+                return True
+            return False
+        except Exception:
+            return False
 
     @staticmethod
     def validate_name(name: str) -> bool:
