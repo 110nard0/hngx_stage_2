@@ -6,6 +6,7 @@ from flask import abort, jsonify, make_response, request
 from models.person import db, Person
 
 from markupsafe import escape
+from typing import Union
 
 
 @app_views.route('/', methods=['GET'], strict_slashes=False)
@@ -20,19 +21,24 @@ def view_persons() -> str:
     return make_response(jsonify(persons), 200)
 
 
-@app_views.route('/<int:user_id>', methods=['GET'], strict_slashes=False)
-def view_person_by_id(user_id: int) -> str:
+@app_views.route('/<user_id>', methods=['GET'], strict_slashes=False)
+def view_person(user_id: Union[int, str]) -> str:
     """ GET /api/user_id
     Path parameter:
       - Person ID
     Return:
       - Person object JSON represented
-      - 400 if bad request format
       - 404 if Person ID does not exist
     """
-    if not Person.validate_id(user_id):
-        abort(400, description="User ID must be a positive integer > 0")
-    person = db.get_or_404(Person, user_id, description="User not found")
+    if Person.validate_name(user_id):
+        person = Person.query.filter_by(name=user_id).first()
+    if not person:
+        if Person.validate_id(user_id):
+            person = db.get_or_404(Person, user_id,
+                                   description="User not found")
+        else:
+            abort(404,
+                  description="UID must be a positive integer or valid string")
     return make_response(jsonify(person), 200)
 
 
@@ -52,14 +58,15 @@ def create_person() -> str:
     name = request.get_json().get('name')
     if not Person.validate_name(name):
         abort(400, description="Name must be a string")
+
     person = Person(name=escape(name))
     db.session.add(person)
     db.session.commit()
     return make_response(jsonify(person), 201)
 
 
-@app_views.route('/<int:user_id>', methods=['PUT'], strict_slashes=False)
-def update_person(user_id: int) -> str:
+@app_views.route('/<user_id>', methods=['PUT'], strict_slashes=False)
+def update_person(user_id: Union[int, str]) -> str:
     """ PUT /api/user_id
     Path parameter:
       - Person ID
@@ -70,23 +77,31 @@ def update_person(user_id: int) -> str:
       - 400 if unable to update Person
       - 404 if Person ID does not exist
     """
-    if not Person.validate_id(user_id):
-        abort(400, description="User ID must be a positive integer > 0")
     if not request.get_json():
         abort(400, description="Not a JSON")
     if 'name' not in request.get_json():
         abort(400, description="Missing name")
-    person = db.get_or_404(Person, user_id, description="User not found")
     name = request.get_json().get('name')
     if not Person.validate_name(name):
         abort(400, description="Name must be a string")
+
+    if Person.validate_name(user_id):
+        person = Person.query.filter_by(name=user_id).first()
+    if not person:
+        if Person.validate_id(user_id):
+            person = db.get_or_404(Person, user_id,
+                                   description="User not found")
+        else:
+            abort(404,
+                  description="UID must be a positive integer or valid string")
+
     person.name = escape(name)
     db.session.commit()
     return make_response(jsonify(person), 200)
 
 
-@app_views.route('/<int:user_id>', methods=['DELETE'], strict_slashes=False)
-def delete_person(user_id: int) -> str:
+@app_views.route('/<user_id>', methods=['DELETE'], strict_slashes=False)
+def delete_person(user_id: Union[int, str]):
     """ DELETE /api/user_id
     Path parameter:
       - Person ID
@@ -95,9 +110,15 @@ def delete_person(user_id: int) -> str:
       - 400 if unable to delete Person
       - 404 if Person ID does not exist
     """
-    if not Person.validate_id(user_id):
-        abort(400, description="User ID must be a positive integer > 0")
-    person = db.get_or_404(Person, user_id, description="User not found")
+    if Person.validate_name(user_id):
+        person = Person.query.filter_by(name=user_id).first()
+    if not person:
+        if Person.validate_id(user_id):
+            person = db.get_or_404(Person, user_id,
+                                   description="User not found")
+        else:
+            abort(404,
+                  description="UID must be a positive integer or valid string")
     db.session.delete(person)
     db.session.commit()
     return make_response(jsonify({}), 204)
