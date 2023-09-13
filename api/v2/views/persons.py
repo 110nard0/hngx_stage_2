@@ -22,7 +22,7 @@ def view_persons() -> str:
 
 
 @app_views.route('/<user_id>', methods=['GET'], strict_slashes=False)
-def view_person_by_id(user_id: Union[int, str]) -> str:
+def view_person(user_id: Union[int, str]) -> str:
     """ GET /api/user_id
     Path parameter:
       - Person ID
