@@ -15,10 +15,8 @@ db_name = os.getenv('HNGX_DATABASE', 'hngx.db')
 #
 app = Flask(__name__)
 
-app.config.from_mapping(
-        SECRET_KEY=os.getenv('SECRET_KEY', 'dev'),
-        SQLALCHEMY_DATABASE_URI='sqlite:///' + os.path.join(basedir, db_name)
-)
+app.config['SQLALCHEMY_DATABASE_URI'] =\
+        'sqlite:///' + os.path.join(basedir, db_name)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.register_blueprint(app_views)
 db.init_app(app)
