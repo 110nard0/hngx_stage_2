@@ -5,6 +5,8 @@ from api.v2.views import app_views
 from flask import abort, jsonify, make_response, request
 from models.person import db, Person
 
+from markupsafe import escape
+
 
 @app_views.route('/', methods=['GET'], strict_slashes=False)
 def view_persons() -> str:
@@ -45,7 +47,10 @@ def create_person() -> str:
     """
     if not 'name' in request.form:
         abort(400, description="Missing name")
-    person = Person(name=request.form.get('name'))
+    name = escape(request.form.get('name'))
+    if not Person.validate_name(name):
+        abort(400, description="Name must be a string")
+    person = Person(name)
     db.session.add(person)
     db.session.commit()
     return make_response(jsonify(person), 201)
@@ -68,7 +73,10 @@ def update_person(user_id: int) -> str:
     if not 'name' in request.form:
         abort(400, description="Missing name")
     person = db.get_or_404(Person, user_id, description="User not found")
-    person.name = request.form.get('name')
+    name = escape(request.form.get('name'))
+    if not Person.validate_name(name):
+        abort(400, description="Name must be a string")
+    person.name = name
     db.session.commit()
     return make_response(jsonify(person), 200)
 

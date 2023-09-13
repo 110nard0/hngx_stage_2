@@ -21,9 +21,20 @@ class Person(db.Model):
         Args:
             person_id (int): Person instance auto-generated database ID
         Return:
-            True (bool): person_id is valid, positive integer
+            True (bool): person_id is a valid, positive integer
             False (bool): person_id is not a valid, non-negative integer
         """
         if person_id and person_id > 0 and isinstance(person_id, int):
             return True
         return False
+
+    @staticmethod
+    def validate_name(name: str) -> bool:
+        """ Verify Person name is a valid string
+        Args:
+            name (str): Value of Person name attribute
+        Return:
+            True (bool): name is a valid string
+            False (bool): name is not a valid string
+        """
+        return True if type(name) is str else False
