@@ -8,14 +8,17 @@ from api.v2.views import app_views
 from models.person import db, Person
 
 
-# 
+#
 basedir = os.path.abspath(os.path.dirname(__file__))
 db_name = os.getenv('HNGX_DATABASE', 'hngx.db')
 
 #
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] =\
-        'sqlite:///' + os.path.join(basedir, db_name)
+
+app.config.from_mapping(
+        SECRET_KEY=os.getenv('SECRET_KEY', 'dev'),
+        SQLALCHEMY_DATABASE_URI='sqlite:///' + os.path.join(basedir, db_name)
+)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.register_blueprint(app_views)
 db.init_app(app)
@@ -38,6 +41,6 @@ def not_found(error) -> str:
 
 
 if __name__ == '__main__':
-    host = os.getenv('HOST_NAME', '127.0.0.1')
-    port = os.getenv('PORT', 5000)
-    app.run(host=host, port=port)
+    HOST = os.getenv('HOST_NAME', '127.0.0.1')
+    PORT = os.getenv('PORT', 5000)
+    app.run(host=HOST, port=PORT)
