@@ -34,9 +34,11 @@ def view_person_by_id(user_id: Union[int, str]) -> str:
         person = Person.query.filter_by(name=user_id).first()
     if not person:
         if Person.validate_id(user_id):
-            person = db.get_or_404(Person, user_id, description="User not found")
+            person = db.get_or_404(Person, user_id,
+                                   description="User not found")
         else:
-            abort(404, description="User ID must be a positive integer or a valid string")
+            abort(404,
+                  description="UID must be a positive integer or valid string")
     return make_response(jsonify(person), 200)
 
 
@@ -87,9 +89,11 @@ def update_person(user_id: Union[int, str]) -> str:
         person = Person.query.filter_by(name=user_id).first()
     if not person:
         if Person.validate_id(user_id):
-            person = db.get_or_404(Person, user_id, description="User not found")
+            person = db.get_or_404(Person, user_id,
+                                   description="User not found")
         else:
-            abort(404, description="User ID must be a positive integer or a valid string")
+            abort(404,
+                  description="UID must be a positive integer or valid string")
 
     person.name = escape(name)
     db.session.commit()
@@ -110,9 +114,11 @@ def delete_person(user_id: Union[int, str]):
         person = Person.query.filter_by(name=user_id).first()
     if not person:
         if Person.validate_id(user_id):
-            person = db.get_or_404(Person, user_id, description="User not found")
+            person = db.get_or_404(Person, user_id,
+                                   description="User not found")
         else:
-            abort(404, description="User ID must be a positive integer or a valid string")
+            abort(404,
+                  description="UID must be a positive integer or valid string")
     db.session.delete(person)
     db.session.commit()
     return make_response(jsonify({}), 204)
