@@ -45,12 +45,14 @@ def create_person() -> str:
       - Person object JSON represented
       - 400 if unable to create Person
     """
-    if not 'name' in request.form:
+    if not request.get_json():
+        abort(400, description="Not a JSON")
+    if 'name' not in request.get_json():
         abort(400, description="Missing name")
-    name = escape(request.form.get('name'))
+    name = request.get_json().get('name')
     if not Person.validate_name(name):
         abort(400, description="Name must be a string")
-    person = Person(name)
+    person = Person(name=escape(name))
     db.session.add(person)
     db.session.commit()
     return make_response(jsonify(person), 201)
@@ -70,13 +72,15 @@ def update_person(user_id: int) -> str:
     """
     if not Person.validate_id(user_id):
         abort(400, description="User ID must be a positive integer > 0")
-    if not 'name' in request.form:
+    if not request.get_json():
+        abort(400, description="Not a JSON")
+    if 'name' not in request.get_json():
         abort(400, description="Missing name")
     person = db.get_or_404(Person, user_id, description="User not found")
-    name = escape(request.form.get('name'))
+    name = request.get_json().get('name')
     if not Person.validate_name(name):
         abort(400, description="Name must be a string")
-    person.name = name
+    person.name = escape(name)
     db.session.commit()
     return make_response(jsonify(person), 200)
 

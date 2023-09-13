@@ -37,4 +37,4 @@ class Person(db.Model):
             True (bool): name is a valid string
             False (bool): name is not a valid string
         """
-        return True if type(name) is str else False
+        return True if name and type(name) is str else False
