@@ -58,7 +58,30 @@ Content-Type: application/json
 }
 ```
 
-### Reading details of a person.
+### Read details of all persons.
+  > GET /api
+
+**Request:**
+
+```http
+GET /api
+```
+
+**Response:**
+
+```json
+Status: 200 OK
+Content-Type: application/json
+
+[
+  {
+    "id": "65035f6372f25cd7f0e3e7bf",
+    "name": "chika"
+  }
+]
+```
+
+### Read details of a person.
   > GET /api/{id}
 
   > GET /api/{name}
@@ -82,30 +105,7 @@ Content-Type: application/json
 }
 ```
 
-### Fetching details of all persons
-  > GET /api
-
-**Request:**
-
-```http
-GET /api
-```
-
-**Response:**
-
-```json
-Status: 200 OK
-Content-Type: application/json
-
-[
-  {
-    "id": "65035f6372f25cd7f0e3e7bf",
-    "name": "chika"
-  }
-]
-```
-
-### Updating details of a person.
+### Update details of a person.
   > PUT /api/{id}
 
   > PUT /api/{name}
@@ -134,7 +134,7 @@ Content-Type: application/json
 }
 ```
 
-### Deleting a person.
+### Delete a person.
   > DELETE /api/{id}
 
   > DELETE /api/{name}
