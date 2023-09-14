@@ -150,8 +150,6 @@ DELETE /api/bolu
 
 ```json
 Status: 204 No Content
-
-{}
 ```
 
 Note: Replace `{id}` and `{name}` in the URLs with the actual ID or name of the user you want to fetch, update, or delete.
