@@ -183,7 +183,7 @@ The collection of the test requests and with included scripts can be found here:
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/29693336-222f5790-c981-4f71-b8a4-952c25b0a7c8?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D29693336-222f5790-c981-4f71-b8a4-952c25b0a7c8%26entityType%3Dcollection%26workspaceId%3D9be6953d-8de3-4898-840e-123f4f0b5429)
 
-### Test screenshots
+### Test Screenshots
 
 ![Tests_1](https://github.com/110nard0/hngx_stage_2/assets/76947677/22f206e3-6e58-430c-af2a-5264f54cd6ed)
 
