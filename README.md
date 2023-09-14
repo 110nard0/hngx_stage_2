@@ -179,7 +179,7 @@ Content-Type: application/json
 ```
 
 ## Testing
-The API was extensively tested using Postman. The full scripts are available [here](postman_test_run.json).
+The API was extensively tested using Postman. The full scripts are available [here](postman_tests.json).
 
 ### Test screenshots
 
