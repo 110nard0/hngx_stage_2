@@ -1,6 +1,6 @@
-# REST API with Basic CRUD Operation
+# REST API with Basic CRUD Operations
 
-This is a REST API capable of basic CRUD operations built with Flask 2.3 and MongoDB 6.0.  
+This is a REST API capable of basic CRUD operations, built with Flask 2.3 and MongoDB 6.0.  
 It dynamically handles request parameters, in order to perform create, read, update, and delete (CRUD) operations on a "person" resource. 
 
 ## Table of Contents
@@ -179,12 +179,14 @@ Content-Type: application/json
 ```
 
 ## Testing
-The API was extensively tested using Postman. The full scripts are available [here](postman_test_run.json).
+The API was extensively tested using Postman. The full scripts are available [here](postman_tests.json).
 
 ### Test screenshots
-![Tests_1](https://github.com/110nard0/hngx_stage_2/assets/76947677/1f35e873-b6c9-4410-88df-32eeb3fbe74f)
 
-![Tests_2](https://github.com/110nard0/hngx_stage_2/assets/76947677/52db3d17-b20d-4003-b115-aaf638d1eeb4)
+![Tests_1](https://github.com/110nard0/hngx_stage_2/assets/76947677/22f206e3-6e58-430c-af2a-5264f54cd6ed)
+
+![Tests_2](https://github.com/110nard0/hngx_stage_2/assets/76947677/fbf490da-58d1-4d13-beeb-0c9e836d0b85)
+
 
 The collection of the test requests and with included scripts can be found here:
 
