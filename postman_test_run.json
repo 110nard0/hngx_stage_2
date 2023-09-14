@@ -1,0 +1,334 @@
+{
+	"id": "129a4026-6673-42be-a24a-830b3b09cbe4",
+	"name": "HNGX API v2",
+	"timestamp": "2023-09-14T20:06:32.132Z",
+	"collection_id": "29693336-222f5790-c981-4f71-b8a4-952c25b0a7c8",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 27,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-09-14T20:06:29.588Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "8b4d5439-c4e9-4bfd-8e1c-da92d43c7aa2",
+			"name": "POST Request",
+			"url": "https://hngx-stage-two-110nard0.vercel.app/api",
+			"time": 427,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Response status code is 201": true,
+				"Response has required fields - id and name": true,
+				"Id is a non-empty string": true,
+				"Name is a non-empty string": true,
+				"Response time is less than 500ms": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has required fields - id and name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Id is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Name is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				427
+			],
+			"allTests": [
+				{
+					"Response status code is 201": true,
+					"Response has required fields - id and name": true,
+					"Id is a non-empty string": true,
+					"Name is a non-empty string": true,
+					"Response time is less than 500ms": true
+				}
+			]
+		},
+		{
+			"id": "bf78712d-3225-44b2-a3d0-629db84d696f",
+			"name": "GET Request",
+			"url": "https://hngx-stage-two-110nard0.vercel.app/api/",
+			"time": 317,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response is an array with at least one element": true,
+				"Each element in the response array has the required fields - id and name": true,
+				"Id is a non-empty string": true,
+				"Name is a non-empty string": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an array with at least one element": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Each element in the response array has the required fields - id and name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Id is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Name is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				317
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response is an array with at least one element": true,
+					"Each element in the response array has the required fields - id and name": true,
+					"Id is a non-empty string": true,
+					"Name is a non-empty string": true
+				}
+			]
+		},
+		{
+			"id": "e5a07b88-7bff-4dfa-8c68-a84089a8b603",
+			"name": "GET Request",
+			"url": "https://hngx-stage-two-110nard0.vercel.app/api/65034831ed7b97af6a2cb7ad",
+			"time": 268,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response has required fields - id and name": true,
+				"Id is a non-empty string": true,
+				"Name is a non-empty string": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has required fields - id and name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Id is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Name is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				268
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response has required fields - id and name": true,
+					"Id is a non-empty string": true,
+					"Name is a non-empty string": true
+				}
+			]
+		},
+		{
+			"id": "b25fa381-7b0c-4c28-b525-d723668a75c2",
+			"name": "GET Request",
+			"url": "https://hngx-stage-two-110nard0.vercel.app/api/gami",
+			"time": 249,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response has the required fields - id and name": true,
+				"id is a non-empty string": true,
+				"Name is a non-empty string": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields - id and name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"id is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Name is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				249
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response has the required fields - id and name": true,
+					"id is a non-empty string": true,
+					"Name is a non-empty string": true
+				}
+			]
+		},
+		{
+			"id": "e06a9c1a-b7ad-4b4b-a58f-7fcd699250df",
+			"name": "PUT Request",
+			"url": "https://hngx-stage-two-110nard0.vercel.app/api/agu",
+			"time": 269,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status code is 200": true,
+				"Response has required fields - id and name": true,
+				"Id is a non-empty string": true,
+				"Name is a non-empty string": true,
+				"Response time is less than 500ms": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has required fields - id and name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Id is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Name is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				269
+			],
+			"allTests": [
+				{
+					"Response status code is 200": true,
+					"Response has required fields - id and name": true,
+					"Id is a non-empty string": true,
+					"Name is a non-empty string": true,
+					"Response time is less than 500ms": true
+				}
+			]
+		},
+		{
+			"id": "142ba8bf-9af7-4279-9cb5-00dff4efb991",
+			"name": "DELETE Request",
+			"url": "https://hngx-stage-two-110nard0.vercel.app/api/psycho",
+			"time": 271,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Response status code is 204": true,
+				"Response body is empty": true,
+				"Resource has been successfully deleted": true,
+				"Response headers do not contain sensitive information": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Resource has been successfully deleted": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response headers do not contain sensitive information": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				271
+			],
+			"allTests": [
+				{
+					"Response status code is 204": true,
+					"Response body is empty": true,
+					"Resource has been successfully deleted": true,
+					"Response headers do not contain sensitive information": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1801,
+	"collection": {
+		"requests": [
+			{
+				"id": "8b4d5439-c4e9-4bfd-8e1c-da92d43c7aa2",
+				"method": "POST"
+			},
+			{
+				"id": "bf78712d-3225-44b2-a3d0-629db84d696f",
+				"method": "GET"
+			},
+			{
+				"id": "e5a07b88-7bff-4dfa-8c68-a84089a8b603",
+				"method": "GET"
+			},
+			{
+				"id": "b25fa381-7b0c-4c28-b525-d723668a75c2",
+				"method": "GET"
+			},
+			{
+				"id": "e06a9c1a-b7ad-4b4b-a58f-7fcd699250df",
+				"method": "PUT"
+			},
+			{
+				"id": "142ba8bf-9af7-4279-9cb5-00dff4efb991",
+				"method": "DELETE"
+			}
+		]
+	}
+}
