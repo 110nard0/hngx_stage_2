@@ -182,9 +182,11 @@ Content-Type: application/json
 The API was extensively tested using Postman. The full scripts are available [here](postman_test_run.json).
 
 ### Test screenshots
-![Tests_1](https://github.com/110nard0/hngx_stage_2/assets/76947677/1f35e873-b6c9-4410-88df-32eeb3fbe74f)
 
-![Tests_2](https://github.com/110nard0/hngx_stage_2/assets/76947677/52db3d17-b20d-4003-b115-aaf638d1eeb4)
+![Tests_1](https://github.com/110nard0/hngx_stage_2/assets/76947677/22f206e3-6e58-430c-af2a-5264f54cd6ed)
+
+![Tests_2](https://github.com/110nard0/hngx_stage_2/assets/76947677/fbf490da-58d1-4d13-beeb-0c9e836d0b85)
+
 
 The collection of the test requests and with included scripts can be found here:
 
