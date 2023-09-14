@@ -3,9 +3,10 @@
 """
 from api.v2.views import app_views
 from flask import abort, jsonify, make_response, request
-from models.person import db, Person
+from models.person import Person
 
 from markupsafe import escape
+from mongoengine.errors import NotUniqueError, ValidationError
 from typing import Union
 
 
@@ -15,9 +16,7 @@ def view_persons() -> str:
     Return:
       - List of all Person objects JSON represented
     """
-    person_list = db.session.execute(
-                 db.select(Person).order_by(Person.id)).scalars()
-    persons = [person for person in person_list]
+    persons = [person.to_dict() for person in Person.objects]
     return make_response(jsonify(persons), 200)
 
 
@@ -30,16 +29,20 @@ def view_person(user_id: Union[int, str]) -> str:
       - Person object JSON represented
       - 404 if Person ID does not exist
     """
-    if Person.validate_name(user_id):
-        person = Person.query.filter_by(name=user_id).first()
-    if not person:
+    try:
         if Person.validate_id(user_id):
-            person = db.get_or_404(Person, user_id,
-                                   description="User not found")
+            person = Person.objects(id=user_id)[0]
         else:
-            abort(404,
-                  description="UID must be a positive integer or valid string")
-    return make_response(jsonify(person), 200)
+            if Person.validate_name(user_id):
+                person = Person.objects(name=user_id)[0]
+            else:
+                abort(404,
+                      description="UID must be a valid string (name or id)")
+    except (IndexError, ValidationError):
+        abort(404,
+              description="User not found")
+    return make_response(jsonify(person.to_dict()), 200)
+
 
 
 @app_views.route('/', methods=['POST'], strict_slashes=False)
@@ -60,9 +63,12 @@ def create_person() -> str:
         abort(400, description="Name must be a string")
 
     person = Person(name=escape(name))
-    db.session.add(person)
-    db.session.commit()
-    return make_response(jsonify(person), 201)
+    try:
+        person.validate()
+        person.save()
+    except (NotUniqueError, ValidationError):
+        abort(400, description="Wrong input format or duplicate name supplied")
+    return make_response(jsonify(person.to_dict()), 201)
 
 
 @app_views.route('/<user_id>', methods=['PUT'], strict_slashes=False)
@@ -85,19 +91,26 @@ def update_person(user_id: Union[int, str]) -> str:
     if not Person.validate_name(name):
         abort(400, description="Name must be a string")
 
-    if Person.validate_name(user_id):
-        person = Person.query.filter_by(name=user_id).first()
-    if not person:
+    try:
         if Person.validate_id(user_id):
-            person = db.get_or_404(Person, user_id,
-                                   description="User not found")
+            person = Person.objects(id=user_id)[0]
         else:
-            abort(404,
-                  description="UID must be a positive integer or valid string")
+            if Person.validate_name(user_id):
+                person = Person.objects(name=user_id)[0]
+            else:
+                abort(404,
+                      description="UID must be a valid string (name or id)")
+    except (IndexError, ValidationError):
+        abort(404,
+              description="User not found")
 
     person.name = escape(name)
-    db.session.commit()
-    return make_response(jsonify(person), 200)
+    try:
+        person.validate()
+        person.save()
+    except (NotUniqueError, ValidationError):
+        abort(400, description="Wrong input format or duplicate name supplied")
+    return make_response(jsonify(person.to_dict()), 200)
 
 
 @app_views.route('/<user_id>', methods=['DELETE'], strict_slashes=False)
@@ -110,15 +123,17 @@ def delete_person(user_id: Union[int, str]):
       - 400 if unable to delete Person
       - 404 if Person ID does not exist
     """
-    if Person.validate_name(user_id):
-        person = Person.query.filter_by(name=user_id).first()
-    if not person:
+    try:
         if Person.validate_id(user_id):
-            person = db.get_or_404(Person, user_id,
-                                   description="User not found")
+            person = Person.objects(id=user_id)[0]
         else:
-            abort(404,
-                  description="UID must be a positive integer or valid string")
-    db.session.delete(person)
-    db.session.commit()
+            if Person.validate_name(user_id):
+                person = Person.objects(name=user_id)[0]
+            else:
+                abort(404,
+                      description="UID must be a valid string (name or id)")
+    except (IndexError, ValidationError):
+        abort(404,
+              description="User not found")
+    person.delete()
     return make_response(jsonify({}), 204)
