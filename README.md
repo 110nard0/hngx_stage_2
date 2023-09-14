@@ -84,8 +84,6 @@ Content-Type: application/json
 ### Read details of a person
   > GET /api/{id}
 
-  > GET /api/{name}
-
 **Request:**
 
 ```http
@@ -107,8 +105,6 @@ Content-Type: application/json
 
 ### Update details of a person
   > PUT /api/{id}
-
-  > PUT /api/{name}
 
 **Request:**
 
@@ -137,8 +133,6 @@ Content-Type: application/json
 ### Delete a person
   > DELETE /api/{id}
 
-  > DELETE /api/{name}
-
 **Request:**
 
 ```http
@@ -152,7 +146,7 @@ DELETE /api/bolu
 Status: 204 No Content
 ```
 
-Note: Replace `{id}` and `{name}` in the URLs with the actual ID or name of the user you want to fetch, update, or delete.
+Note: Replace URL path paramter `{id}` with the valid ID or name of the user you want to fetch, update, or delete.
 
 ## Error Handling
 The API returns the following in case of an error:
