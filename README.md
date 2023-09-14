@@ -50,3 +50,7 @@ Ensure the repository contains:
 - Dynamic Parameter Handling: The API should correctly handle and respond to different parameters provided.
 - GitHub Repository: Repository should be well-organized, contain all necessary files, and be publicly accessible.
 - Detailed Documentation: Documentation should provide clear guidance on how to use the API, including setup, request/response formats, and sample usage.
+- 
+
+### Testing
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/29693336-222f5790-c981-4f71-b8a4-952c25b0a7c8?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D29693336-222f5790-c981-4f71-b8a4-952c25b0a7c8%26entityType%3Dcollection%26workspaceId%3D9be6953d-8de3-4898-840e-123f4f0b5429)
