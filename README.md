@@ -179,7 +179,15 @@ Content-Type: application/json
 ```
 
 ## Testing
-The API was extensively tested using Postman. The collection of the test requests and with included scripts can be found here:
+The API was extensively tested using Postman. The full scripts are available [here](postman_test_run.json).
+
+### Test screenshots
+![Tests_1](https://github.com/110nard0/hngx_stage_2/assets/76947677/1f35e873-b6c9-4410-88df-32eeb3fbe74f)
+
+![Tests_2](https://github.com/110nard0/hngx_stage_2/assets/76947677/52db3d17-b20d-4003-b115-aaf638d1eeb4)
+
+The collection of the test requests and with included scripts can be found here:
+
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/29693336-222f5790-c981-4f71-b8a4-952c25b0a7c8?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D29693336-222f5790-c981-4f71-b8a4-952c25b0a7c8%26entityType%3Dcollection%26workspaceId%3D9be6953d-8de3-4898-840e-123f4f0b5429)
 
 ## UML Diagram
