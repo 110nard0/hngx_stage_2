@@ -1,6 +1,6 @@
-# REST API with Basic CRUD Operation
+# REST API with Basic CRUD Operations
 
-This is a REST API capable of basic CRUD operations built with Flask 2.3 and MongoDB 6.0.  
+This is a REST API capable of basic CRUD operations, built with Flask 2.3 and MongoDB 6.0.  
 It dynamically handles request parameters, in order to perform create, read, update, and delete (CRUD) operations on a "person" resource. 
 
 ## Table of Contents
