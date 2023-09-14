@@ -9,7 +9,7 @@ The default/base URL for all endpoints is `http://localhost:8000`.
 
 ## Endpoints
 
-### Create a new person.
+### Create a new person
 
 **Request:**
   > POST /api
@@ -35,7 +35,7 @@ Content-Type: application/json
 }
 ```
 
-### Read details of all persons.
+### Read details of all persons
   > GET /api
 
 **Request:**
@@ -58,7 +58,7 @@ Content-Type: application/json
 ]
 ```
 
-### Read details of a person.
+### Read details of a person
   > GET /api/{id}
 
   > GET /api/{name}
@@ -82,7 +82,7 @@ Content-Type: application/json
 }
 ```
 
-### Update details of a person.
+### Update details of a person
   > PUT /api/{id}
 
   > PUT /api/{name}
@@ -111,7 +111,7 @@ Content-Type: application/json
 }
 ```
 
-### Delete a person.
+### Delete a person
   > DELETE /api/{id}
 
   > DELETE /api/{name}
