@@ -136,7 +136,7 @@ Note: Replace `{id}` and `{name}` in the URLs with the actual ID or name of the 
 
 Here are some examples of how you can use the API:
 
-1. Adding a new person:
+1. Creating a new person:
    - Send a `POST` request to `/api` with the person's name in the request body.
    - The API will respond with the person's details, including the assigned ID as a JSON body.
 
@@ -147,7 +147,7 @@ Here are some examples of how you can use the API:
 3. Reading details of a person:
    - Send a `GET` request to `/api/{id}` or `/api/{name}` with the person's ID or name in the URL.
    - The API will respond with the person's details as a JSON body.
-   - 
+
 4. Updating details of a person:
    - Send a `PUT` request to `/api/{id}` or `/api/{name}` with the person's ID or name in the URL and the updated name in the request body.
    - The API will respond with the updated person's details as a JSON body.
