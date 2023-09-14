@@ -22,8 +22,8 @@ It dynamically handles request parameters, in order to perform create, read, upd
     > pip -r requirements.txt
  
 ## Configuration
-- Configure the Flask app to serve the API on a different host and port by updating the HOST_NAME and PORT variables in the run command. By default, the app is served on http://localhost:5000.
-- You can configure the Flask app to use a different database by specifying the MONGODB_URI environment before starting the server. The database defaults to http://localhost:27017 without any authentication.
+- Configure the Flask app to serve the API on a different host and port by including the HOST_NAME and PORT variables in the run command. By default, the app is served on http://localhost:5000.
+- You can configure the Flask app to use a different database by specifying the MONGODB_URI connection string while starting the server. The database defaults to http://localhost:27017/hngx without any authentication if no connection string is specified.
 
 ## Usage
 - Run the following command to start the server:
