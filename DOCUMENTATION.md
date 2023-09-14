@@ -173,7 +173,7 @@ To set up and deploy the API locally or on a server, follow these instructions:
 1. Create a new folder for the project.
 2. Clone the project repository from GitHub.
 3. Install the required dependencies from the requirements.txt file using pip.
-4. Configure the database connection before runtime or ina .env file.
-5. Obtain your MongoDB connection string or skip if you do not have a configured database.
-6. Start the Flask server.
-7. The API will be accessible at `http://localhost:5000` or the specified URL.
+4. Configure the flask app host and port details at runtime or insert in a .env file.
+5. Obtain your MongoDB connection string and supply at runtime or skip if you do not have a configured database.
+6. Start the Flask server using `[HOST_NAME] [PORT] [MONGODB_URI] python3 -m api.v2.app`.
+7. The API will be accessible at `http://localhost:5000` or the specified URI.
