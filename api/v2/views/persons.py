@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Module of User views
 """
-from api.v2.views import app_views
 from flask import abort, jsonify, make_response, request
-from models.person import Person
-
 from markupsafe import escape
 from mongoengine.errors import NotUniqueError, ValidationError
 from typing import Union
+
+from api.v2.views import app_views
+from models.person import Person
 
 
 @app_views.route('/', methods=['GET'], strict_slashes=False)
